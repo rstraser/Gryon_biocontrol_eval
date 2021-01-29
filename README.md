@@ -4,8 +4,7 @@
 
 - Identifying the biology and reproductive capacity of parasitic wasp Gryon pennsylvanicum on host.
 - Project tools: R (libraries: xxx, xxx, xxx, xxx)
-- Dataset: laboratory collections
-- Whats the take home?
+- Dataset: personally collected datasets
 
 
 ## Abstract
