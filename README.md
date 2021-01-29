@@ -1,10 +1,9 @@
 # Lab evaluation of Gryon pennsylvanicum as prospective biological control agent to Leptoglossus zontus
 
-## Project at a glace:
+## Tl;dr
 
-- Identifying the biology and reproductive capacity of parasitic wasp Gryon pennsylvanicum on host.
-- Project tools: R (libraries: xxx, xxx, xxx, xxx)
-- Dataset: personally collected datasets
+Scope: Project using personally collected data on biology and reproduction of a parasitic wasp to evaluate as an alternative to insectide use in agriculure.
+Goal: Identifying the longevity and reproductive capacity of parasitic wasp Gryon pennsylvanicum on host leaffooted bug.
 
 
 ## Abstract
