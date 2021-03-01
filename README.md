@@ -20,7 +20,15 @@
 * R (v3.6.1)
 
 ## Packages
-* list packages
+* ggplot2
+* viridis
+* pipeR
+* ggpubr
+* survival
+* survminer
+* lme4
+* multcomp
+* Rmisc
 
 
 ## About the project
