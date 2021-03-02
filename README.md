@@ -6,6 +6,13 @@
 * Identifying the biology and reproductive traits of a natural enemy is important to project its success as a biocontrol agent. 
 * Here, I explore these traits from Gryon pennsylvanicum on host Leptoglossus zonatus.
 
+This work is published in peer review journal,[Biological Control](https://www.journals.elsevier.com/biological-control) and can be found [here](https://www.journals.elsevier.com/biological-control).
+
+**Citation:**
+
+Straser R., Daane K., Talamas E., Wilson H. 2021. Evaluation of _Gryon pennsylvanicum_ (Ashmead)(Hymenoptera: Platygastridae) as a biological control agent of _Leptoglossus zonatus_ Dallas (Heteroptera: Coreidae). _Biological Control_ X, XXX - XXX.
+
+
 ## Figs (need to update figs)
 ![all_figs](https://github.com/rstraser/iEval_sentiment_analysis/blob/main/fig/all_figs.png)
 
