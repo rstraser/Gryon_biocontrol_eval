@@ -40,22 +40,20 @@ Straser R., Daane K., Talamas E., Wilson H. 2021. Evaluation of _Gryon pennsylva
 
 ## About the project
 
-### Title
+### The problem
 
-xxx.
+The western leaffooted bug, _Leptoglossus zonatus_, is becoming a major pest in California tree nut crops such as almond and pistachio. Feeding damage from these pests can cause significant economic loss for growers. Given the lack of suffient monitoring tactics, broad-spectrum insectides remain the primary control tactic for the pest. Reliance on such methods can be economically and environemental unsustainable. In response to a growing demand from growers for more sustainable management options, we explored the potential utility of parasitic wasp _Gryon pennsylvanicum_ as a biological control agent to _L. zonatus_.
 
-### Title 2
+### The solution 
 
-xxx.
+The use of parasitic wasps for the natural control of insect pest populations (biological control) has the potential to provide numerous economic and environmental benefits. If successful, biological control can reduce pest populations, alleviating reliance on commerical insecticides, saving growers time and money all while reducing the negative effects of frequent use of insecticides on people and the environment. 
 
-### Title 3
+### The question
 
-xxx.
+Understanding the demographical and reproductive parameters of a natural enemy is paramount in evaluating it's potential use in biological control programs. Here, we conducted a laboratory evaluation on _G. pennsylvanicum_ as a prospective biological control agent to _L. zonatus_.
 
 
-### Questions addressed
 
-xxx.
 
 
 ## Getting Started
