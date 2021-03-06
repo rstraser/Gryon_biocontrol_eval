@@ -14,7 +14,7 @@ Straser R., Daane K., Talamas E., Wilson H. 2021. Evaluation of _Gryon pennsylva
 
 
 ## Figs (need to update figs)
-![all_figs](https://github.com/rstraser/iEval_sentiment_analysis/blob/main/fig/all_figs.png)
+![all_figs](https://github.com/rstraser/Gryon_biocontrol_eval/tree/main/fig/all.figs.jpg)
 
 
 ## Analytics
