@@ -13,7 +13,7 @@ This work is published in peer review journal,[Biological Control](https://www.j
 Straser R., Daane K., Talamas E., Wilson H. 2021. Evaluation of _Gryon pennsylvanicum_ (Ashmead)(Hymenoptera: Platygastridae) as a biological control agent of _Leptoglossus zonatus_ Dallas (Heteroptera: Coreidae). _Biological Control_ X, XXX - XXX.
 
 
-## Figs (need to update figs)
+## Figures
 ![total.figs](https://github.com/rstraser/Gryon_biocontrol_eval/blob/main/figures/total.figs.jpg)
 
 
