@@ -2,11 +2,11 @@
 
 ## Tl;dr
 
-* Natural enemies, such as parasitic wasps, can help control pests in agriculure. 
-* Identifying the biology and reproductive traits of a natural enemy is important to project its success as a biocontrol agent. 
-* Here, I explore these traits from Gryon pennsylvanicum on host Leptoglossus zonatus.
+* Natural enemies to insects, such as parasitic wasps, can help control pest populations in agriculure. 
+* Identifying the biological and reproductive traits of a natural enemy is important to evaluate its potential success as a biocontrol agent. 
+* Here, I explore these traits from parasitic wasp Gryon pennsylvanicum on its host Leptoglossus zonatus.
 
-This work is published in peer review journal,[Biological Control](https://www.journals.elsevier.com/biological-control) and can be found [here](https://www.journals.elsevier.com/biological-control).
+This work is pending review in peer review journal,[BioControl](https://www.springer.com/journal/10526) and can be found [here](https://www.springer.com/journal/10526).
 
 **Citation:**
 
