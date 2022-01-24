@@ -1,16 +1,16 @@
-# Lab evaluation of Gryon pennsylvanicum as prospective biological control agent to Leptoglossus zontus
+# Evaluation of egg parasitoid _Hadronotus pennsylvanicus_ as prospective biocontrol agent of the leaffooted bug _Leptoglossus zonatus_
 
 ## Tl;dr
 
 * Natural enemies to insects, such as parasitic wasps, can help control pest populations in agriculure. 
 * Identifying the biological and reproductive traits of a natural enemy is important to evaluate its potential success as a biocontrol agent. 
-* Here, I explore these traits from parasitic wasp Gryon pennsylvanicum on its host Leptoglossus zonatus.
+* Here, I explore these traits from parasitic wasp Hadronotus pennsylvanicus on host Leptoglossus zonatus.
 
-This work is pending review in peer review journal,[BioControl](https://www.springer.com/journal/10526) and can be found [here](https://www.springer.com/journal/10526).
+This work is published in peer review journal,[BioControl](https://www.springer.com/journal/10526) and can be found [here](https://link.springer.com/article/10.1007/s10526-022-10131-z).
 
 **Citation:**
 
-Straser R., Daane K., Talamas E., Wilson H. 2021. Evaluation of _Gryon pennsylvanicum_ (Ashmead)(Hymenoptera: Platygastridae) as a biological control agent of _Leptoglossus zonatus_ Dallas (Heteroptera: Coreidae). _JournalName_ X, XXX - XXX.
+Straser, R.K., Daane, K.M., Talamas, E. Wilson, H. Evaluation of egg parasitoid _Hadronotus pennsylvanicus_ as a prospective biocontrol agent of the leaffooted bug _Leptoglossus zonatus_. BioControl (2022). https://doi.org/10.1007/s10526-022-10131-z
 
 
 ## Figures
@@ -42,7 +42,7 @@ Straser R., Daane K., Talamas E., Wilson H. 2021. Evaluation of _Gryon pennsylva
 
 ### The problem
 
-The western leaffooted bug, _Leptoglossus zonatus_, is becoming a major pest in California tree nut crops such as almond and pistachio. Feeding damage from these pests can cause significant economic loss for growers. Given the lack of suffient monitoring tactics, broad-spectrum insectides remain the primary control tactic for the pest. Reliance on such methods can be economically and environemental unsustainable. In response to a growing demand from growers for more sustainable management options, we explored the potential utility of parasitic wasp _Gryon pennsylvanicum_ as a biological control agent to _L. zonatus_.
+The western leaffooted bug, _Leptoglossus zonatus_, is becoming a major pest in California tree nut crops such as almond and pistachio. Feeding damage from these pests can cause significant economic loss for growers. Given the lack of suffient monitoring tactics, broad-spectrum insectides remain the primary control tactic for the pest. Reliance on such methods can be economically and environemental unsustainable. In response to a growing demand from growers for more sustainable management options, we explored the potential utility of parasitic wasp _Hadronotus pennsylvanicus_ as a biological control agent to _L. zonatus_.
 
 ### The solution 
 
@@ -50,7 +50,7 @@ The use of parasitic wasps for the natural control of insect pest populations (b
 
 ### The question
 
-Understanding the demographical and reproductive parameters of a natural enemy is paramount in evaluating it's potential use in biological control programs. Here, we conducted a laboratory evaluation on _G. pennsylvanicum_ as a prospective biological control agent to _L. zonatus_.
+Understanding the demographical and reproductive parameters of a natural enemy is paramount in evaluating it's potential use in biological control programs. Here, we conducted a laboratory evaluation on _H. pennsylvanicus_ as a prospective biological control agent to _L. zonatus_.
 
 
 
@@ -59,8 +59,8 @@ Understanding the demographical and reproductive parameters of a natural enemy i
 ## Getting Started
 
 1. Clone this repo (for help see this [tutorial](https://help.github.com/articles/cloning-a-repository/)).
-2. Raw data are stored [here](https://github.com/rstraser/iEval_sentiment_analysis/blob/main/data/iEval_Comments_concise.pdf) within this repo.    
-3. Data processing and analysis scripts are stored [here](https://github.com/rstraser/iEval_sentiment_analysis/blob/main/Sentiment_analysis_iEvals.Rmd).
+2. Until available public, please feel free to contact me for raw data (contact below).    
+3. Data processing and analysis scripts are stored [here](https://github.com/rstraser/Hadronotus_biocontrol_eval/analysis).
 
 
 ## Contact
