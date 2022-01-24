@@ -36,7 +36,7 @@ longev_barplot <- ggbarplot(longev, x = "treat", y = "futime",
                              palette = c("darkgrey", "white"),
                              add = c("mean_se"),
                              position = position_dodge(0.75),
-                             ylim = c(0, 140),
+                             ylim = c(0, 130),
                              yticks.by = 20,
                              ylab = "Adult longevity (days)")
 
@@ -60,21 +60,31 @@ longev_bar
 # statistics
 #********************
 
-# merge 'sex' with 'treat' as joined variable
-longev$sex_treat <- paste(longev$sex,longev$treat)
-
-mod <- glmer(futime ~ sex_treat + (1|ID), family=poisson, data=longev)
+mod <- glmer(futime ~ sex*treat + (1|ID), family=Gamma(link="identity"), data=longev)
 summary(mod)
-drop1(mod, test="Chisq") #under the output 'LRT' is the chi-square
-
-# Tukey's test
-tuk <- glht(mod, linfct=mcp(sex_treat="Tukey")) #this is the actual Tukey's analysis
-summary(tuk)
-tuk.cld <- cld(tuk) #assign the significance letters
-tuk.cld
+drop1(mod, test="Chisq")
 
 # check model assumptions
 mod.res <- resid(mod)
 qqnorm(mod.res)
 plot(density(mod.res))
+
+
+# Tukey's test
+# merge 'sex' with 'treat'
+longev$sex_treat <- paste(longev$sex,longev$treat)
+# model
+ph.mod <- glmer(futime ~ sex_treat + (1|ID), family=Gamma(link="identity"), data=longev)
+summary(ph.mod)
+tuk <- glht(ph.mod, linfct=mcp(sex_treat="Tukey")) 
+summary(tuk)
+tuk.cld <- cld(tuk) 
+tuk.cld
+
+
+
+
+
+
+
 

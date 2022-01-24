@@ -69,7 +69,13 @@ sex.plot
 # subset days of parasitism events
 ltp3.sub <- subset(ltp.sub, day < 13)
 
-# regression
-fit <- lm(sex.ratio ~ day, data=ltp3.sub)
+# transform proportion data to 0-1
+ltp3.sub$sex.ratio.trans <- ltp3.sub$sex.ratio / 100
+
+# model
+fit <- glmer(sex.ratio.trans ~ day + (1|ID), family=binomial(link = "logit"), data=ltp3.sub)
 summary(fit)
+drop1(fit, test="Chisq")
+
+
 

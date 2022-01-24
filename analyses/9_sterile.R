@@ -43,44 +43,46 @@ ltp.combine$variable <- ifelse(ltp.combine$treatment %in%
 
 
 
+# subset to exclude control
+ltp.combine2 <- subset(ltp.combine, variable == "sterile" |
+                         variable == "total mortality")
+ltp.combine2$variable <- factor(ltp.combine2$variable, levels = c('total mortality', 'sterile'))
+
+
+
+
 #********************
 # plot
 #********************
 
-ster_plot <- ggplot(ltp.combine, aes(x=day, y=mean)) + 
-                    geom_errorbar(aes(ymin=mean-se, ymax=mean+se), 
-                                  width=.75) +
-                    geom_line(aes(linetype = variable)) +
-                    geom_point(aes(colour=factor(variable), 
-                                   fill = factor(variable)), 
-                                   shape=21,
-                                   size=2) + 
-                    scale_fill_manual(values=c("black", "white", "grey")) + 
-                    scale_colour_manual(values=c("black", "black", "black"), name="",
-                                        breaks=c("sterile", "total mortality", "cont"),
-                                        labels=c("non-reproductive", "total mortality", "control")) +
-                    scale_x_continuous(name="Days", 
-                                       breaks = seq(0,50,5), 
-                                       limits = c(0, 50)) +
-                    scale_y_continuous(name="Host egg mortality (%)", 
-                                       limits=c(0, 100)) +
-                    theme_pubr() 
 
-
+ster_barplot <- ggplot(ltp.combine2, aes(x=day, y=mean, fill=variable)) + 
+                geom_bar(stat="identity", color="black", 
+                position=position_dodge()) +
+                xlab(" ") + ylab("Percentage (%)") + 
+                geom_errorbar(aes(ymin=mean, ymax=mean+se), width= 1,
+                position=position_dodge(1.7)) +
+                scale_fill_manual(values=c('grey80','black')) +
+                scale_x_continuous(name="Days", 
+                     breaks = seq(1,39,2), 
+                     limits = c(0, 40))+
+                scale_y_continuous(breaks = seq(0,100,20), 
+                     limits = c(0, 100))
 # clean plot structure
-sterile_plot <- ster_plot + theme(axis.text.y = element_text(size=14),
-                            axis.text.x   = element_text(size=14),
-                            axis.title.y  = element_text(size=14),
-                            axis.title.x  = element_text(size=14),
-                            panel.background = element_blank(),
-                            panel.grid.major = element_blank(), 
-                            panel.grid.minor = element_blank(),
-                            axis.line = element_line(colour = "black"),
-                            panel.border = element_rect(colour = "black", fill=NA, size=0.75))
-
+ster_bar <- ster_barplot +  theme(axis.text.y = element_text(size=14),
+                                  axis.text.x   = element_text(size=14),
+                                  axis.title.y  = element_text(size=14),
+                                  axis.title.x  = element_text(size=14),
+                                  panel.background = element_blank(),
+                                  panel.grid.major = element_blank(), 
+                                  panel.grid.minor = element_blank(),
+                                  axis.line = element_line(colour = "black"),
+                                  panel.border = element_rect(colour = "black", fill=NA, size=0.75))
 
 # print
-sterile_plot
+ster_bar
+
+
 
 
 
@@ -95,6 +97,7 @@ sterile_plot
 # subset day 1
 para.day1 <- subset(ltp.nr, day == 1)
 
+
 # model
 mod2 <- glmer(sterile ~ treatment + (1|ID), family=poisson, data=para.day1)
 summary(mod2)
@@ -106,6 +109,8 @@ qqnorm(mod2.res)
 
 
 
+
+
 # test proportion of sterile eggs ~ days
 # create dataframe: proportion of sterile to total egg mortality
 ltp.nr3 <- subset(ltp.nr, treatment == 3)
@@ -113,9 +118,15 @@ prop.ltp.nr <- ltp.nr3[, c("ID", "day", "Tot.mort.perc", "sterile.perc")]
 prop.ltp.nr$prop.sterile <- prop.ltp.nr$sterile.perc / prop.ltp.nr$Tot.mort.perc
 head(prop.ltp.nr)
 
-# regression
-prop.fit <- lm(prop.sterile ~ day, data=prop.ltp.nr)
-summary(prop.fit) # show results
+# model
+prop.fit <- glmer(prop.sterile ~ day + (1|ID), family=binomial(link = "logit"), data=prop.ltp.nr)
+summary(prop.fit)
+drop1(prop.fit, test="Chisq") #under the output 'LRT'
+
+# check assumptions
+prop.fit.res <- resid(prop.fit)
+qqnorm(prop.fit.res)
+plot(density(prop.fit.res))
 
 
 

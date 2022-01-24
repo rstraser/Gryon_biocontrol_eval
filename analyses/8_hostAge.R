@@ -5,6 +5,8 @@
 
 # read in data
 egg.age.t <- read.csv ("lfb_egg_age_parasitism_trans.csv")
+head(egg.age.t)
+
 
 
 #********************
@@ -16,6 +18,7 @@ para.se.t <- summarySE(egg.age.t,
                        measurevar="value", 
                        groupvars=c("treatment", "var"), 
                        na.rm = TRUE)
+
 
 # subset variables
 para.se.t <- subset(para.se.t, var == "lfb.perc" |
@@ -32,6 +35,12 @@ levels(para.se.t$var) <- list("LZ nymph" = "lfb.perc",
                               "sterile" = "sterile.perc")
 
 
+# summarize means of each group
+all.avg <- data_summary(para.se.t, 
+                    varname="value", 
+                    groupnames=c("var"))
+
+
 
 
 #********************
@@ -43,16 +52,16 @@ egg_age <- ggplot(para.se.t, aes(x=var, y=value, fill=treatment)) +
                   geom_bar(stat="identity", 
                            color="black", 
                            position=position_dodge(width = 0.8), width=0.7) +
-                  geom_errorbar(aes(ymin=value-se, ymax=value+se), 
+                  geom_errorbar(aes(ymin=value, ymax=value+se), 
                                 width=.2, 
                                 position=position_dodge(width = 0.8)) +
                   scale_y_continuous(limits = c(0, 80), 
-                                     breaks = seq(0, 80, by = 20)) +
+                                     breaks = seq(0, 80, by = 10)) +
                   theme_pubr() + 
-                  scale_fill_manual(values=c("grey30", "grey50", "grey80", "white"))
+                  scale_fill_manual(values=c("black", "grey65", "grey85", "white"))
 
 # clean plot structure
-age_plot <- ege_age + theme(axis.text.y = element_text(size=14),
+age_plot <- egg_age + theme(axis.text.y = element_text(size=14),
                             axis.text.x   = element_text(size=14),
                             axis.title.y  = element_text(size=14),
                             axis.title.x  = element_text(size=14),
@@ -83,6 +92,10 @@ egg.age.sub <- subset(egg.age.t, var == "lfb.perc" |
 egg.age.sub$var_treat <- paste(egg.age.sub$variable, egg.age.sub$treatment)
 head(egg.age.sub)
 
+# transform proportion data to 0-1
+egg.age.sub$prop <- egg.age.sub$value / 100
+
+
 # subset variables
 LZ.sub <- subset(egg.age.sub, var == "lfb.perc")
 LZun.sub <- subset(egg.age.sub, var == "un.lfb.perc")
@@ -93,16 +106,17 @@ sterile.sub <- subset(egg.age.sub, var == "sterile.perc")
 
 #********************
 
-# LZ nymphs model
-mod5 <- glmer(value ~ var_treat + (1|ID), family=poisson, data=LZ.sub)
-summary(mod5)
-drop1(mod5, test="Chisq") #under the output 'LRT' is the chi-square
 
-# Tukey's test
+# LZ nymphs model
+mod5 <- glmer(prop ~ var_treat + (1|ID), family=binomial(link = "logit"), data=LZ.sub)
+summary(mod5)
+
+# tukey test
 tuk <- glht(mod5, linfct=mcp(var_treat="Tukey")) #this is the actual Tukey's analysis
 summary(tuk)
 tuk.cld <- cld(tuk) #assign the significance letters
 tuk.cld
+
 
 # check assumptions
 mod5.res <- resid(mod5)
@@ -110,60 +124,56 @@ qqnorm(mod5.res)
 plot(density(mod5.res))
 
 
+
 #********************
+
 
 # LZ unemerged model
-mod6 <- glmer(value ~ var_treat + (1|ID), family=poisson, data=LZun.sub)
+mod6 <- glmer(prop ~ var_treat + (1|ID), family=binomial(link = "logit"), data=LZun.sub)
 summary(mod6)
-drop1(mod6, test="Chisq") #under the output 'LRT' is the chi-square
 
-# Tukey's test
-tuk <- glht(mod6, linfct=mcp(var_treat="Tukey")) #this is the actual Tukey's analysis
-summary(tuk)
-tuk.cld <- cld(tuk) #assign the significance letters
-tuk.cld
+# check assumptions
+mod6.res <- resid(mod6)
+qqnorm(mod6.res)
+plot(density(mod6.res))
+
 
 
 #********************
 
-# GP adults model
-mod7 <- glmer(value ~ var_treat + (1|ID), family=poisson, data=GP.sub)
-summary(mod7)
-drop1(mod7, test="Chisq") #under the output 'LRT' is the chi-square
 
-# Tukey's test
-tuk <- glht(mod7, linfct=mcp(var_treat="Tukey")) #this is the actual Tukey's analysis
-summary(tuk)
-tuk.cld <- cld(tuk) #assign the significance letters
-tuk.cld
+# GP adults model
+mod7 <- glmer(prop ~ var_treat + (1|ID), family=binomial(link = "logit"), data=GP.sub)
+summary(mod7)
+
+# check assumptions
+mod7.res <- resid(mod7)
+qqnorm(mod7.res)
+plot(density(mod7.res))
 
 
 #********************
 
 # GP unemerged model
-mod8 <- glmer(value ~ var_treat + (1|ID), family=poisson, data=GPun.sub)
+mod8 <- glmer(prop ~ var_treat + (1|ID), family=binomial(link = "logit"), data=GPun.sub)
 summary(mod8)
-drop1(mod8, test="Chisq") #under the output 'LRT' is the chi-square
 
-# Tukey's test
-tuk <- glht(mod8, linfct=mcp(var_treat="Tukey")) #this is the actual Tukey's analysis
-summary(tuk)
-tuk.cld <- cld(tuk) #assign the significance letters
-tuk.cld
+# check assumptions
+mod8.res <- resid(mod8)
+qqnorm(mod8.res)
+plot(density(mod8.res))
 
 
 #********************
 
 # sterile eggs model
-mod9 <- glmer(value ~ var_treat + (1|ID), family=poisson, data=sterile.sub)
+mod9 <- glmer(prop ~ var_treat + (1|ID), family=binomial(link = "logit"), data=sterile.sub)
 summary(mod9)
-drop1(mod9, test="Chisq") #under the output 'LRT' is the chi-square
 
-# Tukey's test
-tuk <- glht(mod9, linfct=mcp(var_treat="Tukey")) #this is the actual Tukey's analysis
-summary(tuk)
-tuk.cld <- cld(tuk) #assign the significance letters
-tuk.cld
+# check assumptions
+mod9.res <- resid(mod9)
+qqnorm(mod9.res)
+plot(density(mod9.res))
 
 
 

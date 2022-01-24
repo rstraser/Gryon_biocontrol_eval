@@ -65,6 +65,10 @@ res_fem
 
 
 
+
+
+
+
 #********************
 #  male analyses & plot
 #********************
@@ -101,6 +105,5 @@ res_mal <- pairwise_survdiff(Surv(futime, fustat) ~ treat, data = mal)
 
 # print
 res_mal
-
 
 
